@@ -79,9 +79,9 @@ const translations = {
       capabilities: [
         { title: "Am hiểu nghiệp vụ", desc: "Hiểu sâu các lĩnh vực nghiệp vụ đặc thù để thiết kế giải pháp chính xác." },
         { title: "Năng lực kỹ thuật vững chắc", desc: "Năng lực kỹ thuật mạnh mẽ, triển khai hệ thống ổn định và bảo mật." },
-        { title: "Nghiên cứu & Mô hình hóa AI", desc: "Nghiên cứu và tinh chỉnh các mô hình AI tiên tiến nhất cho từng bài toán." }
+        { title: "Ứng dụng những nghiên cứu & mô hình hóa AI", desc: "Nghiên cứu và tinh chỉnh các mô hình AI tiên tiến nhất cho từng bài toán." }
       ],
-      quote: "Cùng với nhau, những năng lực này cho phép chúng tôi phát triển các giải pháp AI có thể được triển khai, tích hợp và tin cậy trong các bối cảnh tổ chức và vận hành thực tế."
+      quote: "Cùng với nhau, những năng lực này cho phép chúng tôi phát triển các giải pháp AI có thể được triển khai, tích hợp và tin cậy trong các bối cảnh tổ chức và vận hành thực tế. Mục tiêu của chúng tôi là cung cấp các hệ thống trí tuệ nhân tạo thiết thực với giá trị có thể đo lường được."
     },
     tech: {
       subtitle: "Công nghệ",
@@ -140,13 +140,13 @@ const translations = {
     about: {
       subtitle: "About Us",
       title: "TABCOM VIET NAM Joint Stock Company",
-      description: "TABCOM VIET NAM is a technology company with deep expertise in applied artificial intelligence, focused on building AI-driven systems that operate effectively in real-world contexts.",
+      description: "TABCOM VIET NAM is a technology company with strong expertise in applied artificial intelligence, focused on building AI-driven systems that operate effectively in real-world environments. Our capability is built on:",
       capabilities: [
         { title: "Domain Understanding", desc: "Deep insight into specific business domains for precise solution design." },
-        { title: "Solid Engineering", desc: "Strong technical capabilities for stable and secure system deployment." },
-        { title: "AI Research & Modeling", desc: "Researching and fine-tuning state-of-the-art AI models for specific problems." }
+        { title: "Solid engineering capability", desc: "Strong technical capabilities for stable and secure system deployment." },
+        { title: "Applied AI research and modeling", desc: "Researching and fine-tuning state-of-the-art AI models for specific problems." }
       ],
-      quote: "Together, these capabilities enable us to develop AI solutions that can be deployed, integrated, and trusted within real organizational and operational contexts."
+      quote: "Together, these capabilities enable us to develop AI solutions that can be deployed, integrated, and trusted within real organizational and operational contexts. Our focus is on delivering practical AI systems with measurable value."
     },
     tech: {
       subtitle: "Technology",
@@ -268,7 +268,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Phân tích dữ liệu tài chính, giao dịch và chứng từ để hỗ trợ tuân thủ, kiểm toán và phân tích rủi ro. Được phát triển cùng các kiểm toán viên chuyên nghiệp." : "Analyzes financial data, transactions, and documents to support compliance, audit, and risk analysis. Developed with professional auditors.",
       capabilities: lang === 'vi' ? ["Phân tích tài chính hỗ trợ bởi AI", "Hơn 120 quy tắc kiểm toán cấu hình được", "Phát hiện bất thường và rủi ro", "Logic tuân thủ tùy chỉnh"] : ["AI-assisted financial analysis", "120+ configurable audit rules", "Anomaly and risk detection", "Customizable compliance logic"],
       value: lang === 'vi' ? ["Giảm nỗ lực kiểm toán", "Cải thiện khả năng quan sát rủi ro", "Quản trị tài chính mạnh mẽ hơn"] : ["Reduced audit effort", "Improved risk visibility", "Stronger financial governance"],
-      image: "https://picsum.photos/seed/finwork/800/600"
+      image: "../image/1.svg"
     },
     {
       id: "smartvision",
@@ -277,7 +277,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Ứng dụng thị giác máy tính vào các luồng video để giám sát vận hành, tuân thủ an toàn và quản lý nơi làm việc thông minh." : "Applies computer vision to video streams for operational monitoring, safety compliance, and intelligent workplace management.",
       capabilities: lang === 'vi' ? ["Giám sát sự hiện diện & di chuyển", "Phát hiện tình huống bất thường", "Giám sát an toàn lao động", "Phân tích sử dụng không gian"] : ["People presence & movement monitoring", "Abnormal situation detection", "Workplace safety monitoring", "Space utilization analytics"],
       value: lang === 'vi' ? ["Tăng cường khả năng hiển thị vận hành", "Giảm giám sát thủ công", "Đảm bảo tuân thủ an toàn"] : ["Enhanced operational visibility", "Reduced manual monitoring", "Ensured safety compliance"],
-      image: "https://picsum.photos/seed/vision/800/600"
+      image: "../image/2.svg"
     },
     {
       id: "geneskin",
@@ -286,7 +286,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Áp dụng phân tích dữ liệu di truyền và AI để đưa ra những hiểu biết cá nhân hóa, dựa trên khoa học về sức khỏe làn da và sức khỏe tổng thể." : "Applies genomic data analysis and AI to deliver personalized, science-based insights for skin health and overall well-being.",
       capabilities: lang === 'vi' ? ["Phân tích sức khỏe dựa trên di truyền", "Khuyến nghị lối sống cá nhân hóa", "Suy luận AI từ kiến thức y khoa", "Đánh giá rủi ro dài hạn"] : ["Genetic-based health analysis", "Personalized lifestyle recommendations", "AI reasoning from medical knowledge", "Long-term risk assessment"],
       value: lang === 'vi' ? ["Hướng dẫn khách quan, dựa trên khoa học", "Giải pháp chăm sóc cá nhân hóa", "Niềm tin dựa trên bằng chứng"] : ["Objective, science-backed guidance", "Individualized care solutions", "Evidence-based trust"],
-      image: "https://picsum.photos/seed/genomic/800/600"
+      image: "../image/3.svg"
     },
     {
       id: "agentflow",
@@ -295,7 +295,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Xây dựng và triển khai các đại lý AI thông minh tương tác với người dùng, hỗ trợ nhiệm vụ và tự động hóa quy trình giữa các hệ thống." : "Building and deploying intelligent AI agents that interact with users, assist tasks, and automate workflows across systems.",
       capabilities: lang === 'vi' ? ["AI hội thoại cho sự tương tác", "Các đại lý truy xuất định hướng nhiệm vụ", "Tích hợp website/ứng dụng liền mạch", "Logic tổ chức tùy chỉnh"] : ["Conversational AI for engagement", "Task-oriented retrieval agents", "Seamless website/app integration", "Customizable organizational logic"],
       value: lang === 'vi' ? ["Trải nghiệm người dùng phản hồi nhanh", "Giảm khối lượng công việc thủ công", "Hỗ trợ nhất quán, có khả năng mở rộng"] : ["Responsive user experience", "Reduced manual workload", "Scalable consistent support"],
-      image: "https://picsum.photos/seed/agents/800/600"
+      image: "../image/4.svg"
     }
   ], [lang]);
 
@@ -420,7 +420,7 @@ const App: React.FC = () => {
           </div>
           <div className="hidden md:block relative">
              <img 
-               src="https://picsum.photos/seed/tech-office/800/600" 
+               src="../image/Mask group.svg" 
                alt="AI Tech Hub" 
                className="rounded-2xl shadow-2xl border border-slate-800"
              />
@@ -469,9 +469,8 @@ const App: React.FC = () => {
             </div>
             
             <div className="grid grid-cols-2 gap-4">
-               <img src="https://picsum.photos/seed/a1/400/500" className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
-               <img src="https://picsum.photos/seed/a2/400/240" className="rounded-2xl object-cover h-full" alt="Tech" />
-               <img src="https://picsum.photos/seed/a3/400/240" className="rounded-2xl object-cover h-full" alt="Office" />
+               <img src="../image/Union.svg" className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
+               <img src="../image/LogoAmban 1.svg" className="rounded-2xl object-cover h-full" alt="Tech" />
             </div>
           </div>
         </div>
