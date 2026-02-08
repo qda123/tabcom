@@ -34,6 +34,12 @@ interface TechItem {
   icon: React.ReactNode;
 }
 
+interface CapabilityItem {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
 interface ProductItem {
   id: string;
   name: string;
@@ -60,6 +66,7 @@ const translations = {
     nav: {
       about: "Về chúng tôi",
       tech: "Công nghệ",
+      capability: "Use Cases",
       products: "Sản phẩm",
       projects: "Dự án",
       contact: "Liên hệ"
@@ -87,11 +94,15 @@ const translations = {
       subtitle: "Công nghệ",
       title: "Công nghệ AI & Nền tảng Kỹ thuật"
     },
+    capability: {
+      subtitle: "Capability",
+      title: "AI Capabilities & Use Cases"
+    },    
     delivery: {
       subtitle: "Cách thức TABCOM",
       title: "Chúng tôi triển khai AI như thế nào",
       items: [
-        { title: "Ưu tiên AI Agent thông minh", desc: "Giải quyết các vấn đề kinh doanh và vận hành thực tế trước tiên." },
+        { title: "AI Agent thông minh và trợ lý AI", desc: "Giải quyết các vấn đề kinh doanh và vận hành thực tế trước tiên." },
         { title: "Mô hình triển khai linh hoạt", desc: "API đám mây bảo mật hoặc môi trường riêng tư (On-premise), tùy theo nhu cầu khách hàng." },
         { title: "Bảo mật dữ liệu ngay từ thiết kế", desc: "Ranh giới dữ liệu rõ ràng, quản trị và kiểm soát quyền sử dụng." },
         { title: "Con người trong vòng lặp (Human-in-the-Loop)", desc: "Mặc định có sự xem xét, kiểm soát và giám sát của con người." },
@@ -125,6 +136,7 @@ const translations = {
     nav: {
       about: "About Us",
       tech: "Technology",
+      capability: "Use Cases",
       products: "Products",
       projects: "Projects",
       contact: "Contact"
@@ -152,13 +164,19 @@ const translations = {
       subtitle: "Technology",
       title: "AI Technologies & Engineering Stack"
     },
+
+    capability: {
+      subtitle: "Capability",
+      title: "AI Capabilities & Use Cases"
+    },
+
     delivery: {
       subtitle: "The TABCOM Way",
       title: "How We Deliver AI Solutions",
       items: [
-        { title: "Intelligent Agents First", desc: "Focusing on real business and operational problems first." },
-        { title: "Flexible Deployment", desc: "Secure cloud APIs or private on-premise environments, based on client needs." },
-        { title: "Privacy by Design", desc: "Clear data boundaries, governance, and usage control." },
+        { title: "Intelligent Agents & AI Assistants", desc: "Focusing on real business and operational problems first." },
+        { title: "Flexible Deployment Models", desc: "Secure cloud APIs or private on-premise environments, based on client needs." },
+        { title: "Data Privacy by Design", desc: "Clear data boundaries, governance, and usage control." },
         { title: "Human-in-the-Loop", desc: "Human review, control, and oversight by default." },
         { title: "Long-term Operability", desc: "Deployable, maintainable, and evolvable AI systems." }
       ]
@@ -260,6 +278,34 @@ const App: React.FC = () => {
     }
   ], [lang]);
 
+  const capabilityStack = useMemo<CapabilityItem[]>(() => [
+    {
+      title: "Intelligent Agents & AI Assistants",
+      description: lang === 'vi' ? "Xây dựng các hệ thống hội thoại và thấu hiểu bằng các mô hình tiên tiến nhất." : "Conversational and task-oriented agents supporting interaction, information access, and decision-making.",
+      image: "../image/1.svg"
+    },
+    {
+      title: "Computer Vision & Visual Intelligence",
+      description: lang === 'vi' ? "Thấu hiểu thị giác để giám sát, phát hiện và đo lường." : "Image and video analysis for monitoring, detection, measurement, and visual understanding in real-world environments.",
+      image: "../image/2.svg"
+    },
+    {
+      title: "AI-driven Automation",
+      description: lang === 'vi' ? "Các tác tử thực thi nhiệm vụ, tự động hóa quy trình và hỗ trợ ra quyết định." : "Automation of workflows, processes, and operational tasks using AI models and agents.",
+      image: "../image/3.svg"
+    },
+    {
+      title: "Data Analysis & Decision Support",
+      description: lang === 'vi' ? "Học máy cổ điển và sâu cho dữ liệu có cấu trúc và phi cấu trúc." : "Analysis of structured and unstructured data to generate insights, reports, and decision support.",
+      image: "../image/4.svg"
+    },
+    {
+      title: "Custom AI Systems",
+      description: lang === 'vi' ? "Phát triển và tích hợp đầu-cuối vào các hệ thống doanh nghiệp." : "Tailored AI solutions combining multiple AI capabilities with business logic and human oversight.",
+      image: "../image/5.svg"
+    }
+  ], [lang]);
+
   const products = useMemo<ProductItem[]>(() => [
     {
       id: "finwork",
@@ -268,7 +314,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Phân tích dữ liệu tài chính, giao dịch và chứng từ để hỗ trợ tuân thủ, kiểm toán và phân tích rủi ro. Được phát triển cùng các kiểm toán viên chuyên nghiệp." : "Analyzes financial data, transactions, and documents to support compliance, audit, and risk analysis. Developed with professional auditors.",
       capabilities: lang === 'vi' ? ["Phân tích tài chính hỗ trợ bởi AI", "Hơn 120 quy tắc kiểm toán cấu hình được", "Phát hiện bất thường và rủi ro", "Logic tuân thủ tùy chỉnh"] : ["AI-assisted financial analysis", "120+ configurable audit rules", "Anomaly and risk detection", "Customizable compliance logic"],
       value: lang === 'vi' ? ["Giảm nỗ lực kiểm toán", "Cải thiện khả năng quan sát rủi ro", "Quản trị tài chính mạnh mẽ hơn"] : ["Reduced audit effort", "Improved risk visibility", "Stronger financial governance"],
-      image: "../image/1.svg"
+      image: "../image/product1.svg"
     },
     {
       id: "smartvision",
@@ -277,7 +323,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Ứng dụng thị giác máy tính vào các luồng video để giám sát vận hành, tuân thủ an toàn và quản lý nơi làm việc thông minh." : "Applies computer vision to video streams for operational monitoring, safety compliance, and intelligent workplace management.",
       capabilities: lang === 'vi' ? ["Giám sát sự hiện diện & di chuyển", "Phát hiện tình huống bất thường", "Giám sát an toàn lao động", "Phân tích sử dụng không gian"] : ["People presence & movement monitoring", "Abnormal situation detection", "Workplace safety monitoring", "Space utilization analytics"],
       value: lang === 'vi' ? ["Tăng cường khả năng hiển thị vận hành", "Giảm giám sát thủ công", "Đảm bảo tuân thủ an toàn"] : ["Enhanced operational visibility", "Reduced manual monitoring", "Ensured safety compliance"],
-      image: "../image/2.svg"
+      image: "../image/product2.svg"
     },
     {
       id: "geneskin",
@@ -286,7 +332,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Áp dụng phân tích dữ liệu di truyền và AI để đưa ra những hiểu biết cá nhân hóa, dựa trên khoa học về sức khỏe làn da và sức khỏe tổng thể." : "Applies genomic data analysis and AI to deliver personalized, science-based insights for skin health and overall well-being.",
       capabilities: lang === 'vi' ? ["Phân tích sức khỏe dựa trên di truyền", "Khuyến nghị lối sống cá nhân hóa", "Suy luận AI từ kiến thức y khoa", "Đánh giá rủi ro dài hạn"] : ["Genetic-based health analysis", "Personalized lifestyle recommendations", "AI reasoning from medical knowledge", "Long-term risk assessment"],
       value: lang === 'vi' ? ["Hướng dẫn khách quan, dựa trên khoa học", "Giải pháp chăm sóc cá nhân hóa", "Niềm tin dựa trên bằng chứng"] : ["Objective, science-backed guidance", "Individualized care solutions", "Evidence-based trust"],
-      image: "../image/3.svg"
+      image: "../image/product3.svg"
     },
     {
       id: "agentflow",
@@ -295,7 +341,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Xây dựng và triển khai các đại lý AI thông minh tương tác với người dùng, hỗ trợ nhiệm vụ và tự động hóa quy trình giữa các hệ thống." : "Building and deploying intelligent AI agents that interact with users, assist tasks, and automate workflows across systems.",
       capabilities: lang === 'vi' ? ["AI hội thoại cho sự tương tác", "Các đại lý truy xuất định hướng nhiệm vụ", "Tích hợp website/ứng dụng liền mạch", "Logic tổ chức tùy chỉnh"] : ["Conversational AI for engagement", "Task-oriented retrieval agents", "Seamless website/app integration", "Customizable organizational logic"],
       value: lang === 'vi' ? ["Trải nghiệm người dùng phản hồi nhanh", "Giảm khối lượng công việc thủ công", "Hỗ trợ nhất quán, có khả năng mở rộng"] : ["Responsive user experience", "Reduced manual workload", "Scalable consistent support"],
-      image: "../image/4.svg"
+      image: "../image/product4.svg"
     }
   ], [lang]);
 
@@ -304,36 +350,72 @@ const App: React.FC = () => {
       id: "mobifone",
       title: "FinWorkAI for MobiFone",
       client: "MobiFone",
-      description: lang === 'vi' ? "Triển khai cho MobiFone để hỗ trợ tuân thủ tài chính, soát xét kiểm toán và kiểm soát nội bộ trong một doanh nghiệp quy mô lớn." : "Deployed for MobiFone to support financial compliance, audit review, and internal control within a large-scale enterprise.",
+      description: lang === 'vi' ? "Triển khai cho MobiFone để hỗ trợ tuân thủ tài chính, soát xét kiểm toán và kiểm soát nội bộ trong một doanh nghiệp quy mô lớn." : "FinWorkAI was deployed for MobiFone to support financial compliance, audit review, and internal control processes within a large-scale enterprise environment. The project focused on applying AI to analyze financial data and documents, supporting compliance and audit activities under strict security, operational, and data governance requirements.",
       highlights: lang === 'vi' ? ["Bối cảnh tài chính doanh nghiệp thực tế", "Quy trình làm việc tùy chỉnh", "Hạ tầng NVIDIA H100", "Triển khai tại chỗ (On-premise)"] : ["Real enterprise financial context", "Customized workflows", "NVIDIA H100 infrastructure", "On-premise deployment"],
       impact: lang === 'vi' ? ["Hiệu quả", "Sự nhất quán", "Cách ly dữ liệu nghiêm ngặt"] : ["Efficiency", "Consistency", "Strict Data Isolation"],
-      image: "https://picsum.photos/seed/mobi/800/600"
+      image: "../image/computer1.svg"
     },
     {
       id: "intron",
       title: "Intron Genomic Health",
       client: "GeneStory",
-      description: lang === 'vi' ? "Nền tảng trí tuệ sức khỏe di truyền chuyển đổi dữ liệu xét nghiệm gen thành trí tuệ lâm sàng cá nhân hóa." : "Genomic health intelligence platform converting genetic test data into personalized clinical intelligence.",
+      description: lang === 'vi' ? "Nền tảng trí tuệ sức khỏe di truyền chuyển đổi dữ liệu xét nghiệm gen thành trí tuệ lâm sàng cá nhân hóa." : "Intron is an applied AI health application jointly developed by TABCOM VIET NAM and GeneStory, designed to convert genetic test data into personalized, science-based health intelligence. The platform applies artificial intelligence and medical knowledge to enable genetically informed risk assessment and drug response insights, supporting preventive healthcare and long-term health management.",
       highlights: lang === 'vi' ? ["Đánh giá rủi ro dựa trên di truyền", "Hiểu biết về dược động học", "Khả năng truy cập Web & Di động", "Nền tảng tích hợp"] : ["Genetic-based risk assessment", "Pharmacogenomic insights", "Web & Mobile accessibility", "Integration foundation"],
       impact: lang === 'vi' ? ["Ra quyết định phòng ngừa", "Giải Nhì Data for Life 2024"] : ["Preventive decision-making", "Data for Life 2024 Second Prize"],
-      image: "https://picsum.photos/seed/intron/800/600"
+      image: "../image/computer2.svg"
     },
     {
       id: "technavi",
-      title: lang === 'vi' ? "Phân tích Khoa học & Công nghệ" : "Tech & Science Analysis",
-      description: lang === 'vi' ? "Nền tảng hỗ trợ AI để thu thập, tổng hợp và phân tích hệ thống thông tin Khoa học & Công nghệ toàn cầu." : "AI-enabled platform for systematic collection, synthesis, and analysis of global S&T information.",
+      title: lang === 'vi' ? "Phân tích Khoa học & Công nghệ" : "Technology & Science analysis platform",
+      description: lang === 'vi' ? "Nền tảng hỗ trợ AI để thu thập, tổng hợp và phân tích hệ thống thông tin Khoa học & Công nghệ toàn cầu." : "This project is an applied artificial intelligence platform designed to support the systematic collection, synthesis, and analysis of global science and technology information. By applying AI-driven data processing and analytical models, the platform enables the identification of emerging trends, structured insights, and analytical perspectives to support evidence-based analysis and long-term strategic planning.",
       highlights: lang === 'vi' ? ["Hiểu biết đa nguồn dữ liệu", "Hỗ trợ lập kế hoạch chiến lược", "Phân tích cảnh quan tài năng", "Giám sát S&T toàn cầu"] : ["Multi-source data insight", "Strategic planning support", "Talent landscape analysis", "Global S&T monitoring"],
       impact: lang === 'vi' ? ["Thông tin có cấu trúc", "Lập kế hoạch chiến lược dài hạn"] : ["Structured insights", "Long-term strategic planning"],
-      image: "https://picsum.photos/seed/science/800/600"
+      image: "../image/computer3.svg"
+    },
+    {
+      id: "smartdata",
+      title: lang === 'vi' ? "Bản đồ dữ liệu thông minh" : "SMART DATA MAP",
+      client: "MobiFone",
+      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "Smart Data Map is a comprehensive digital cataloging solution designed to define, plan, and visualize the entire data lifecycle within Mobifone. It bridges the gap between physical storage and business interfaces, eliminating \"data blind spots\" to serve as the core foundation for accurate, data-driven decision-making.",
+      highlights: lang === 'vi' ? ["Nhận diện thị giác máy tính", "Trích xuất nhãn OCR", "Nhập dữ liệu tự động", "Ứng dụng di động đầu-cuối"] : ["Computer vision recognition", "OCR label extraction", "Automated data entry", "End-to-end mobile app"],
+      impact: lang === 'vi' ? ["Giảm sai sót thủ công", "Cải thiện tốc độ & hiệu quả"] : ["Reduced manual errors", "Improved speed & efficiency"],
+      image: "../image/computer4.svg"
     },
     {
       id: "logistics",
-      title: lang === 'vi' ? "Tự động hóa Logistics" : "Logistics Automation",
+      title: lang === 'vi' ? "Nền tảng tự động hóa dựa trên AI dành cho Logistics" : "AI-powered Automation Platform for Logistics",
       client: "KN Express",
-      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "Applied AI system to automate operational workflows for cross-border logistics (Vietnam-Japan).",
+      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "This project is an applied AI system developed to automate operational workflows for a cross-border logistics company operating between Vietnam and Japan. The solution combines web and mobile applications with computer vision and OCR technologies to digitize package information, streamline data entry, and reduce manual handling throughout the logistics process.",
       highlights: lang === 'vi' ? ["Nhận diện thị giác máy tính", "Trích xuất nhãn OCR", "Nhập dữ liệu tự động", "Ứng dụng di động đầu-cuối"] : ["Computer vision recognition", "OCR label extraction", "Automated data entry", "End-to-end mobile app"],
       impact: lang === 'vi' ? ["Giảm sai sót thủ công", "Cải thiện tốc độ & hiệu quả"] : ["Reduced manual errors", "Improved speed & efficiency"],
-      image: "https://picsum.photos/seed/truck/800/600"
+      image: "../image/project4.svg"
+    },
+    {
+      id: "logistics",
+      title: lang === 'vi' ? "Trung tâm trao đổi dữ liệu thông minh" : "SMART DATA EXCHANGE HUB",
+      client: "MobiFone",
+      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "The Smart Data Exchange Hub is a centralized, high-security platform customized specifically for Mobifone’s internal infrastructure. It transforms how Mobifone manages data by unifying File Sharing and API Integration into a single on-premise portal. This solution ensures absolute data sovereignty, keeping sensitive telecommunication assets within Mobifone’s private network while enabling seamless cross-departmental collaboration.",
+      highlights: lang === 'vi' ? ["Nhận diện thị giác máy tính", "Trích xuất nhãn OCR", "Nhập dữ liệu tự động", "Ứng dụng di động đầu-cuối"] : ["Computer vision recognition", "OCR label extraction", "Automated data entry", "End-to-end mobile app"],
+      impact: lang === 'vi' ? ["Giảm sai sót thủ công", "Cải thiện tốc độ & hiệu quả"] : ["Reduced manual errors", "Improved speed & efficiency"],
+      image: "../image/project6.svg"
+    },
+    {
+      id: "logistics",
+      title: lang === 'vi' ? "Chương trình đào tạo ứng dụng AI" : "Applied Artificial Intelligence Training Program",
+      client: "MB",
+      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "This project is an applied AI training program designed to build foundational AI understanding for banking professionals. The program focuses on helping participants understand what AI can do, what it cannot do, and how AI systems operate in practice, rather than technical implementation.",
+      highlights: lang === 'vi' ? ["Nhận diện thị giác máy tính", "Trích xuất nhãn OCR", "Nhập dữ liệu tự động", "Ứng dụng di động đầu-cuối"] : ["Computer vision recognition", "OCR label extraction", "Automated data entry", "End-to-end mobile app"],
+      impact: lang === 'vi' ? ["Giảm sai sót thủ công", "Cải thiện tốc độ & hiệu quả"] : ["Reduced manual errors", "Improved speed & efficiency"],
+      image: "../image/project5.svg"
+    },
+    {
+      id: "logistics",
+      client: "Song Cong Environment",
+      title: lang === 'vi' ? "Nền tảng giám sát hoạt động môi trường" : "Environmental operations monitoring platform",
+      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "This project applies artificial intelligence and computer vision to monitor, analyze, and evaluate operational performance within an industrial waste treatment facility. The system integrates IP camera–based visual monitoring with data from operational sensors to provide a comprehensive, data-driven view of waste processing activities across multiple production lines.",
+      highlights: lang === 'vi' ? ["Nhận diện thị giác máy tính", "Trích xuất nhãn OCR", "Nhập dữ liệu tự động", "Ứng dụng di động đầu-cuối"] : ["Computer vision recognition", "OCR label extraction", "Automated data entry", "End-to-end mobile app"],
+      impact: lang === 'vi' ? ["Giảm sai sót thủ công", "Cải thiện tốc độ & hiệu quả"] : ["Reduced manual errors", "Improved speed & efficiency"],
+      image: "../image/computer7.svg"
     }
   ], [lang]);
 
@@ -342,9 +424,8 @@ const App: React.FC = () => {
       {/* --- Header --- */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-xl">T</div>
-            <span className="text-2xl font-bold tracking-tighter text-white">TABCOM</span>
+          <div className="flex items-center gap-2 mb-8">
+            <img src="../image/Logo.svg" className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
@@ -468,10 +549,7 @@ const App: React.FC = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-2 gap-4">
-               <img src="../image/Union.svg" className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
-               <img src="../image/LogoAmban 1.svg" className="rounded-2xl object-cover h-full" alt="Tech" />
-            </div>
+            <img src="../image/Union.svg" className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
           </div>
         </div>
       </section>
@@ -498,6 +576,33 @@ const App: React.FC = () => {
                     </span>
                   ))}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- Capability Stack --- */}
+      <section id="capability" className="py-24 bg-slate-950">
+        <div className="max-w-7xl mx-auto px-6">
+          <SectionTitle subtitle={t.capability.subtitle} title={t.capability.title} />
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {capabilityStack.map((capability, idx) => (
+              <div key={idx} className="glass-card p-8 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition-all group">
+                {/* <div className="mb-6 bg-slate-900 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  {capability.image}
+                </div> */}
+                <div className="flex-1">
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                    <img src={capability.image} className="relative rounded-2xl shadow-2xl border border-slate-800 w-full" alt={capability.title} />
+                  </div>
+                </div>
+                <h4 className="text-xl font-bold mb-4">{capability.title}</h4>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                  {capability.description}
+                </p>
               </div>
             ))}
           </div>
@@ -642,8 +747,7 @@ const App: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-8">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-lg">T</div>
-                <span className="text-2xl font-bold tracking-tighter text-white">TABCOM</span>
+                <img src="../image/Logo.svg" className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed mb-8">
                 {t.footer.description}
@@ -666,17 +770,17 @@ const App: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex gap-4 items-start text-slate-400 text-sm">
                     <MapPin className="text-blue-500 flex-shrink-0" size={18} />
-                    <span>B18/D21 Building, Dich Vong Hau New Urban Area, Cau Giay District, Hanoi</span>
+                    <span>4th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi City, Vietnam</span>
                   </div>
                   <div className="flex gap-4 items-center text-slate-400 text-sm">
                     <Phone className="text-blue-500 flex-shrink-0" size={18} />
-                    <span>0907.37.26.66</span>
+                    <span>0908.632.288</span>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="flex gap-4 items-center text-slate-400 text-sm">
                     <Mail className="text-blue-500 flex-shrink-0" size={18} />
-                    <span>sy.tv@tabcom.vn</span>
+                    <span>support@tabcom.vn</span>
                   </div>
                   <div className="flex gap-4 items-center text-slate-400 text-sm">
                     <Globe className="text-blue-500 flex-shrink-0" size={18} />
