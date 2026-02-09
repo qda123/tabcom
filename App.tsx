@@ -19,6 +19,7 @@ import {
   ArrowRight,
   Zap,
   ShieldCheck,
+  Trophy,
   BarChart3,
   Layers,
   Languages
@@ -72,7 +73,7 @@ const translations = {
       contact: "Liên hệ"
     },
     hero: {
-      badge: "Công ty AI Ứng dụng",
+      badge: "Applied Artificial Intelligence Company",
       title1: "Chuyển hóa AI thành",
       title2: "Giá trị Thực tế",
       description: "Trí tuệ thực tiễn. Tác động đo lường được. Chúng tôi thiết kế và xây dựng các hệ thống AI vận hành hiệu quả trong môi trường thực tế.",
@@ -95,8 +96,8 @@ const translations = {
       title: "Công nghệ AI & Nền tảng Kỹ thuật"
     },
     capability: {
-      subtitle: "Capability",
-      title: "AI Capabilities & Use Cases"
+      subtitle: "Năng lực",
+      title: "Năng lực AI và các trường hợp ứng dụng của trí tuệ nhân tạo"
     },    
     delivery: {
       subtitle: "Cách thức TABCOM",
@@ -129,7 +130,7 @@ const translations = {
       description: "Hợp tác với TABCOM VIET NAM trong lĩnh vực AI. Chúng tôi xây dựng các sản phẩm độc quyền và giải pháp tùy chỉnh mang lại giá trị lâu dài.",
       links: "Liên kết",
       info: "Thông tin liên hệ",
-      rights: "© 2026 Công ty Cổ phần TABCOM Việt Nam. Bảo lưu mọi quyền."
+      rights: "© 2026 TABCOM VIET NAM Joint Stock Company. All rights reserved."
     }
   },
   en: {
@@ -142,7 +143,7 @@ const translations = {
       contact: "Contact"
     },
     hero: {
-      badge: "Applied AI Company",
+      badge: "Applied Artificial Intelligence Company",
       title1: "Turning AI into",
       title2: "Real-World Value",
       description: "Practical Intelligence. Measurable Impact. We design and build AI-driven systems that operate effectively in real-world environments.",
@@ -361,7 +362,7 @@ const App: React.FC = () => {
       client: "GeneStory",
       description: lang === 'vi' ? "Nền tảng trí tuệ sức khỏe di truyền chuyển đổi dữ liệu xét nghiệm gen thành trí tuệ lâm sàng cá nhân hóa." : "Intron is an applied AI health application jointly developed by TABCOM VIET NAM and GeneStory, designed to convert genetic test data into personalized, science-based health intelligence. The platform applies artificial intelligence and medical knowledge to enable genetically informed risk assessment and drug response insights, supporting preventive healthcare and long-term health management.",
       highlights: lang === 'vi' ? ["Đánh giá rủi ro dựa trên di truyền", "Hiểu biết về dược động học", "Khả năng truy cập Web & Di động", "Nền tảng tích hợp"] : ["Genetic-based risk assessment", "Pharmacogenomic insights", "Web & Mobile accessibility", "Integration foundation"],
-      impact: lang === 'vi' ? ["Ra quyết định phòng ngừa", "Giải Nhì Data for Life 2024"] : ["Preventive decision-making", "Data for Life 2024 Second Prize"],
+      impact: lang === 'vi' ? "Giải Nhì – Dự án Dữ liệu cho Cuộc sống 2025, cuộc thi toàn quốc do Bộ Công an Việt Nam tổ chức" : "Second Prize – Data for Life 2025, national competition organized by the Ministry of Public Security of Vietnam",
       image: "../image/computer2.svg"
     },
     {
@@ -425,7 +426,7 @@ const App: React.FC = () => {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 mb-8">
-            <img src="../image/Logo.svg" className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
+            <img src="../image/Logo.svg" className="logo-banner rounded-2xl row-span-2 object-cover h-full" alt="Team" />
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
@@ -590,15 +591,15 @@ const App: React.FC = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilityStack.map((capability, idx) => (
               <div key={idx} className="glass-card p-8 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition-all group">
-                {/* <div className="mb-6 bg-slate-900 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                {/* { <div className="mb-6 bg-slate-900 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   {capability.image}
-                </div> */}
-                <div className="flex-1">
+                </div> } */}
+                { <div className="flex-1 mb-5">
                   <div className="relative group">
                     <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
                     <img src={capability.image} className="relative rounded-2xl shadow-2xl border border-slate-800 w-full" alt={capability.title} />
                   </div>
-                </div>
+                </div> }
                 <h4 className="text-xl font-bold mb-4">{capability.title}</h4>
                 <p className="text-slate-400 text-sm mb-6 leading-relaxed">
                   {capability.description}
@@ -701,13 +702,13 @@ const App: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project) => (
               <div key={project.id} className="bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 hover:border-blue-500/30 transition-all flex flex-col">
-                <div className="h-64 relative overflow-hidden">
-                  <img src={project.image} className="w-full h-full object-cover" alt={project.title} />
-                  {project.client && (
+                <div className="h-64 relative overflow-hidden mt-5">
+                  <img src={project.image} className="w-full h-full" alt={project.title} />
+                  {/* {project.client && (
                     <div className="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
                       Client: {project.client}
                     </div>
-                  )}
+                  )} */}
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
                   <h4 className="text-2xl font-bold mb-4">{project.title}</h4>
@@ -726,12 +727,19 @@ const App: React.FC = () => {
                     </div>
                     
                     <div className="flex items-center justify-between pt-6 border-t border-slate-800">
-                      <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
-                        <ShieldCheck size={18} /> {t.projects.labels.impact}
-                      </div>
-                      <button className="text-slate-300 hover:text-white transition-colors">
+                      {project.id === 'intron' ? (
+                        <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
+                          <Trophy size={24} className="text-amber-400" />
+                          {project.impact}
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                          <ShieldCheck size={18} /> {t.projects.labels.impact}
+                        </div>
+                      )}
+                      {/* <button className="text-slate-300 hover:text-white transition-colors">
                         <ArrowRight size={24} />
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </div>
@@ -749,9 +757,9 @@ const App: React.FC = () => {
               <div className="flex items-center gap-2 mb-8">
                 <img src="../image/Logo.svg" className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed mb-8">
+              {/* <p className="text-slate-400 text-sm leading-relaxed mb-8">
                 {t.footer.description}
-              </p>
+              </p> */}
             </div>
 
             <div className="lg:col-span-1">
@@ -793,10 +801,10 @@ const App: React.FC = () => {
 
           <div className="pt-12 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-xs">
             <p>{t.footer.rights}</p>
-            <div className="flex gap-8">
+            {/* <div className="flex gap-8">
               <a href="#" className="hover:text-slate-300">Privacy Policy</a>
               <a href="#" className="hover:text-slate-300">Terms of Service</a>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
