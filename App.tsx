@@ -25,6 +25,29 @@ import {
   Languages
 } from 'lucide-react';
 
+import img1 from '@/image/1.svg'
+import img2 from '@/image/2.svg'
+import img3 from '@/image/3.svg'
+import img4 from '@/image/4.svg'
+import img5 from '@/image/5.svg'
+import imgproduct1 from '@/image/product1.svg'
+import imgproduct2 from '@/image/product2.svg'
+import imgproduct3 from '@/image/product3.svg'
+import imgproduct4 from '@/image/product4.svg'
+import imgcomputer1 from '@/image/computer1.svg'
+import imgcomputer2 from '@/image/computer2.svg'
+import imgcomputer3 from '@/image/computer3.svg'
+import imgcomputer4 from '@/image/computer4.svg'
+import imgproject4 from '@/image/project4.svg'
+import imgproject5 from '@/image/project5.svg'
+import imgproject6 from '@/image/project6.svg'
+import imgcomputer7 from '@/image/computer7.svg'
+import imgLogo from '@/image/Logo.svg'
+import imgMask_group from '@/image/Mask group.svg'
+import imgUnion from '@/image/Union.svg'
+
+
+
 // --- Types ---
 type Language = 'vi' | 'en';
 
@@ -97,16 +120,16 @@ const translations = {
     },
     capability: {
       subtitle: "Năng lực",
-      title: "Năng lực AI và các trường hợp ứng dụng của trí tuệ nhân tạo"
+      title: "Những trường hợp ứng dụng AI"
     },    
     delivery: {
       subtitle: "Cách thức TABCOM",
       title: "Chúng tôi triển khai AI như thế nào",
       items: [
         { title: "AI Agent thông minh và trợ lý AI", desc: "Giải quyết các vấn đề kinh doanh và vận hành thực tế trước tiên." },
-        { title: "Mô hình triển khai linh hoạt", desc: "API đám mây bảo mật hoặc môi trường riêng tư (On-premise), tùy theo nhu cầu khách hàng." },
+        { title: "Mô hình triển khai linh hoạt", desc: "API đám mây bảo mật hoặc môi trường riêng tư, tùy theo nhu cầu khách hàng." },
         { title: "Bảo mật dữ liệu ngay từ thiết kế", desc: "Ranh giới dữ liệu rõ ràng, quản trị và kiểm soát quyền sử dụng." },
-        { title: "Con người trong vòng lặp (Human-in-the-Loop)", desc: "Mặc định có sự xem xét, kiểm soát và giám sát của con người." },
+        { title: "Human-in-the-Loop", desc: "Mặc định có sự xem xét, kiểm soát và giám sát của con người." },
         { title: "Khả năng vận hành lâu dài", desc: "Các hệ thống AI có khả năng triển khai, bảo trì và tiến hóa theo thời gian." }
       ]
     },
@@ -213,7 +236,7 @@ const NavItem: React.FC<{ href: string; label: string; onClick?: () => void }> =
   <a 
     href={href} 
     onClick={onClick}
-    className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors uppercase tracking-wider"
+    className="text-sm font-medium text-slate-900 hover:text-blue-400 transition-colors uppercase tracking-wider"
   >
     {label}
   </a>
@@ -222,7 +245,7 @@ const NavItem: React.FC<{ href: string; label: string; onClick?: () => void }> =
 const SectionTitle: React.FC<{ subtitle: string; title: string; centered?: boolean }> = ({ subtitle, title, centered = true }) => (
   <div className={`mb-16 ${centered ? 'text-center' : ''}`}>
     <h3 className="text-blue-500 font-semibold tracking-widest uppercase text-sm mb-2">{subtitle}</h3>
-    <h2 className="text-3xl md:text-4xl font-bold">{title}</h2>
+    <h2 className="text-3xl md:text-4xl font-bold text-slate-900">{title}</h2>
     <div className={`h-1 w-20 bg-blue-600 mt-4 ${centered ? 'mx-auto' : ''}`}></div>
   </div>
 );
@@ -242,7 +265,7 @@ const App: React.FC = () => {
 
   const techStack = useMemo<TechItem[]>(() => [
     {
-      title: "Large Language Models & NLP",
+      title: "LLM & NLP",
       description: lang === 'vi' ? "Xây dựng các hệ thống hội thoại và thấu hiểu bằng các mô hình tiên tiến nhất." : "Building conversational and understanding systems with state-of-the-art models.",
       technologies: ["ChatGPT", "Gemini", "Qwen", "Gemma", "DeepSeek"],
       icon: <BrainCircuit className="w-8 h-8 text-blue-500" />
@@ -254,7 +277,7 @@ const App: React.FC = () => {
       icon: <Eye className="w-8 h-8 text-blue-500" />
     },
     {
-      title: lang === 'vi' ? "Đại lý thông minh & Tự động hóa" : "Intelligent Agents & Automation",
+      title: lang === 'vi' ? "Intelligent Agents & Automation" : "Intelligent Agents & Automation",
       description: lang === 'vi' ? "Các tác tử thực thi nhiệm vụ, tự động hóa quy trình và hỗ trợ ra quyết định." : "Agents for task execution, workflow automation, and decision support.",
       technologies: ["AI Agents", "Workflow Automation", "Monitoring"],
       icon: <Bot className="w-8 h-8 text-blue-500" />
@@ -278,32 +301,32 @@ const App: React.FC = () => {
       icon: <Cloud className="w-8 h-8 text-blue-500" />
     }
   ], [lang]);
-
+  //
   const capabilityStack = useMemo<CapabilityItem[]>(() => [
     {
       title: "Intelligent Agents & AI Assistants",
-      description: lang === 'vi' ? "Xây dựng các hệ thống hội thoại và thấu hiểu bằng các mô hình tiên tiến nhất." : "Conversational and task-oriented agents supporting interaction, information access, and decision-making.",
-      image: "../image/1.svg"
+      description: lang === 'vi' ? "Các tác nhân AI hội thoại và định hướng nhiệm vụ, hỗ trợ tương tác người dùng, truy xuất thông tin và hỗ trợ ra quyết định." : "Conversational and task-oriented agents supporting interaction, information access, and decision-making.",
+      image: img1
     },
     {
       title: "Computer Vision & Visual Intelligence",
-      description: lang === 'vi' ? "Thấu hiểu thị giác để giám sát, phát hiện và đo lường." : "Image and video analysis for monitoring, detection, measurement, and visual understanding in real-world environments.",
-      image: "../image/2.svg"
+      description: lang === 'vi' ? "Phân tích hình ảnh và video phục vụ giám sát, phát hiện, đo lường và hiểu nội dung thị giác trong các môi trường thực tế." : "Image and video analysis for monitoring, detection, measurement, and visual understanding in real-world environments.",
+      image: img2
     },
     {
       title: "AI-driven Automation",
-      description: lang === 'vi' ? "Các tác tử thực thi nhiệm vụ, tự động hóa quy trình và hỗ trợ ra quyết định." : "Automation of workflows, processes, and operational tasks using AI models and agents.",
-      image: "../image/3.svg"
+      description: lang === 'vi' ? "Tự động hóa quy trình làm việc, quy trình vận hành và các tác vụ nghiệp vụ thông qua các mô hình và tác nhân AI." : "Automation of workflows, processes, and operational tasks using AI models and agents.",
+      image: img3
     },
     {
       title: "Data Analysis & Decision Support",
-      description: lang === 'vi' ? "Học máy cổ điển và sâu cho dữ liệu có cấu trúc và phi cấu trúc." : "Analysis of structured and unstructured data to generate insights, reports, and decision support.",
-      image: "../image/4.svg"
+      description: lang === 'vi' ? "Phân tích dữ liệu có cấu trúc và phi cấu trúc nhằm tạo ra insight, báo cáo và hỗ trợ ra quyết định." : "Analysis of structured and unstructured data to generate insights, reports, and decision support.",
+      image: img4
     },
     {
       title: "Custom AI Systems",
-      description: lang === 'vi' ? "Phát triển và tích hợp đầu-cuối vào các hệ thống doanh nghiệp." : "Tailored AI solutions combining multiple AI capabilities with business logic and human oversight.",
-      image: "../image/5.svg"
+      description: lang === 'vi' ? "Giải pháp AI được thiết kế theo nhu cầu, kết hợp nhiều năng lực AI với logic nghiệp vụ và sự giám sát của con người." : "Tailored AI solutions combining multiple AI capabilities with business logic and human oversight.",
+      image: img5
     }
   ], [lang]);
 
@@ -315,7 +338,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Phân tích dữ liệu tài chính, giao dịch và chứng từ để hỗ trợ tuân thủ, kiểm toán và phân tích rủi ro. Được phát triển cùng các kiểm toán viên chuyên nghiệp." : "Analyzes financial data, transactions, and documents to support compliance, audit, and risk analysis. Developed with professional auditors.",
       capabilities: lang === 'vi' ? ["Phân tích tài chính hỗ trợ bởi AI", "Hơn 120 quy tắc kiểm toán cấu hình được", "Phát hiện bất thường và rủi ro", "Logic tuân thủ tùy chỉnh"] : ["AI-assisted financial analysis", "120+ configurable audit rules", "Anomaly and risk detection", "Customizable compliance logic"],
       value: lang === 'vi' ? ["Giảm nỗ lực kiểm toán", "Cải thiện khả năng quan sát rủi ro", "Quản trị tài chính mạnh mẽ hơn"] : ["Reduced audit effort", "Improved risk visibility", "Stronger financial governance"],
-      image: "../image/product1.svg"
+      image: imgproduct1
     },
     {
       id: "smartvision",
@@ -324,7 +347,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Ứng dụng thị giác máy tính vào các luồng video để giám sát vận hành, tuân thủ an toàn và quản lý nơi làm việc thông minh." : "Applies computer vision to video streams for operational monitoring, safety compliance, and intelligent workplace management.",
       capabilities: lang === 'vi' ? ["Giám sát sự hiện diện & di chuyển", "Phát hiện tình huống bất thường", "Giám sát an toàn lao động", "Phân tích sử dụng không gian"] : ["People presence & movement monitoring", "Abnormal situation detection", "Workplace safety monitoring", "Space utilization analytics"],
       value: lang === 'vi' ? ["Tăng cường khả năng hiển thị vận hành", "Giảm giám sát thủ công", "Đảm bảo tuân thủ an toàn"] : ["Enhanced operational visibility", "Reduced manual monitoring", "Ensured safety compliance"],
-      image: "../image/product2.svg"
+      image: imgproduct2
     },
     {
       id: "geneskin",
@@ -333,7 +356,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Áp dụng phân tích dữ liệu di truyền và AI để đưa ra những hiểu biết cá nhân hóa, dựa trên khoa học về sức khỏe làn da và sức khỏe tổng thể." : "Applies genomic data analysis and AI to deliver personalized, science-based insights for skin health and overall well-being.",
       capabilities: lang === 'vi' ? ["Phân tích sức khỏe dựa trên di truyền", "Khuyến nghị lối sống cá nhân hóa", "Suy luận AI từ kiến thức y khoa", "Đánh giá rủi ro dài hạn"] : ["Genetic-based health analysis", "Personalized lifestyle recommendations", "AI reasoning from medical knowledge", "Long-term risk assessment"],
       value: lang === 'vi' ? ["Hướng dẫn khách quan, dựa trên khoa học", "Giải pháp chăm sóc cá nhân hóa", "Niềm tin dựa trên bằng chứng"] : ["Objective, science-backed guidance", "Individualized care solutions", "Evidence-based trust"],
-      image: "../image/product3.svg"
+      image: imgproduct3
     },
     {
       id: "agentflow",
@@ -342,7 +365,7 @@ const App: React.FC = () => {
       description: lang === 'vi' ? "Xây dựng và triển khai các đại lý AI thông minh tương tác với người dùng, hỗ trợ nhiệm vụ và tự động hóa quy trình giữa các hệ thống." : "Building and deploying intelligent AI agents that interact with users, assist tasks, and automate workflows across systems.",
       capabilities: lang === 'vi' ? ["AI hội thoại cho sự tương tác", "Các đại lý truy xuất định hướng nhiệm vụ", "Tích hợp website/ứng dụng liền mạch", "Logic tổ chức tùy chỉnh"] : ["Conversational AI for engagement", "Task-oriented retrieval agents", "Seamless website/app integration", "Customizable organizational logic"],
       value: lang === 'vi' ? ["Trải nghiệm người dùng phản hồi nhanh", "Giảm khối lượng công việc thủ công", "Hỗ trợ nhất quán, có khả năng mở rộng"] : ["Responsive user experience", "Reduced manual workload", "Scalable consistent support"],
-      image: "../image/product4.svg"
+      image: imgproduct4
     }
   ], [lang]);
 
@@ -351,82 +374,82 @@ const App: React.FC = () => {
       id: "mobifone",
       title: "FinWorkAI for MobiFone",
       client: "MobiFone",
-      description: lang === 'vi' ? "Triển khai cho MobiFone để hỗ trợ tuân thủ tài chính, soát xét kiểm toán và kiểm soát nội bộ trong một doanh nghiệp quy mô lớn." : "FinWorkAI was deployed for MobiFone to support financial compliance, audit review, and internal control processes within a large-scale enterprise environment. The project focused on applying AI to analyze financial data and documents, supporting compliance and audit activities under strict security, operational, and data governance requirements.",
-      highlights: lang === 'vi' ? ["Bối cảnh tài chính doanh nghiệp thực tế", "Quy trình làm việc tùy chỉnh", "Hạ tầng NVIDIA H100", "Triển khai tại chỗ (On-premise)"] : ["Real enterprise financial context", "Customized workflows", "NVIDIA H100 infrastructure", "On-premise deployment"],
+      description: lang === 'vi' ? "FinWorkAI được triển khai cho MobiFone nhằm hỗ trợ tuân thủ tài chính, rà soát kiểm toán và kiểm soát nội bộ trong môi trường doanh nghiệp quy mô lớn, đáp ứng các yêu cầu nghiêm ngặt về bảo mật và quản trị dữ liệu." : "FinWorkAI was deployed for MobiFone to support financial compliance, audit review, and internal control processes within a large-scale enterprise environment. The project focused on applying AI to analyze financial data and documents, supporting compliance and audit activities under strict security, operational, and data governance requirements.",
+      highlights: lang === 'vi' ? ["Bối cảnh tài chính doanh nghiệp thực tế", "Quy trình làm việc tùy chỉnh", "Hạ tầng NVIDIA H100", "Triển khai tại chỗ"] : ["Real enterprise financial context", "Customized workflows", "NVIDIA H100 infrastructure", "On-premise deployment"],
       impact: lang === 'vi' ? ["Hiệu quả", "Sự nhất quán", "Cách ly dữ liệu nghiêm ngặt"] : ["Efficiency", "Consistency", "Strict Data Isolation"],
-      image: "../image/computer1.svg"
+      image: imgcomputer1
     },
     {
       id: "intron",
       title: "Intron Genomic Health",
       client: "GeneStory",
-      description: lang === 'vi' ? "Nền tảng trí tuệ sức khỏe di truyền chuyển đổi dữ liệu xét nghiệm gen thành trí tuệ lâm sàng cá nhân hóa." : "Intron is an applied AI health application jointly developed by TABCOM VIET NAM and GeneStory, designed to convert genetic test data into personalized, science-based health intelligence. The platform applies artificial intelligence and medical knowledge to enable genetically informed risk assessment and drug response insights, supporting preventive healthcare and long-term health management.",
+      description: lang === 'vi' ? "Intron là ứng dụng AI trong lĩnh vực chăm sóc sức khỏe, chuyển đổi dữ liệu xét nghiệm di truyền thành thông tin sức khỏe cá nhân hóa, hỗ trợ đánh giá rủi ro và đáp ứng thuốc dựa trên cơ sở khoa học." : "Intron is an applied AI health application jointly developed by TABCOM VIET NAM and GeneStory, designed to convert genetic test data into personalized, science-based health intelligence. The platform applies artificial intelligence and medical knowledge to enable genetically informed risk assessment and drug response insights, supporting preventive healthcare and long-term health management.",
       highlights: lang === 'vi' ? ["Đánh giá rủi ro dựa trên di truyền", "Hiểu biết về dược động học", "Khả năng truy cập Web & Di động", "Nền tảng tích hợp"] : ["Genetic-based risk assessment", "Pharmacogenomic insights", "Web & Mobile accessibility", "Integration foundation"],
       impact: lang === 'vi' ? "Giải Nhì – Dự án Dữ liệu cho Cuộc sống 2025, cuộc thi toàn quốc do Bộ Công an Việt Nam tổ chức" : "Second Prize – Data for Life 2025, national competition organized by the Ministry of Public Security of Vietnam",
-      image: "../image/computer2.svg"
+      image: imgcomputer2
     },
     {
       id: "technavi",
       title: lang === 'vi' ? "Phân tích Khoa học & Công nghệ" : "Technology & Science analysis platform",
-      description: lang === 'vi' ? "Nền tảng hỗ trợ AI để thu thập, tổng hợp và phân tích hệ thống thông tin Khoa học & Công nghệ toàn cầu." : "This project is an applied artificial intelligence platform designed to support the systematic collection, synthesis, and analysis of global science and technology information. By applying AI-driven data processing and analytical models, the platform enables the identification of emerging trends, structured insights, and analytical perspectives to support evidence-based analysis and long-term strategic planning.",
+      description: lang === 'vi' ? "Nền tảng AI hỗ trợ thu thập, tổng hợp và phân tích thông tin khoa học và công nghệ toàn cầu, giúp nhận diện xu hướng, tạo insight có cấu trúc và phục vụ hoạch định chiến lược dài hạn." : "This project is an applied artificial intelligence platform designed to support the systematic collection, synthesis, and analysis of global science and technology information. By applying AI-driven data processing and analytical models, the platform enables the identification of emerging trends, structured insights, and analytical perspectives to support evidence-based analysis and long-term strategic planning.",
       highlights: lang === 'vi' ? ["Hiểu biết đa nguồn dữ liệu", "Hỗ trợ lập kế hoạch chiến lược", "Phân tích cảnh quan tài năng", "Giám sát S&T toàn cầu"] : ["Multi-source data insight", "Strategic planning support", "Talent landscape analysis", "Global S&T monitoring"],
       impact: lang === 'vi' ? ["Thông tin có cấu trúc", "Lập kế hoạch chiến lược dài hạn"] : ["Structured insights", "Long-term strategic planning"],
-      image: "../image/computer3.svg"
+      image: imgcomputer3
     },
     {
-      id: "smartdata",
+      id: "smartdatamap",
       title: lang === 'vi' ? "Bản đồ dữ liệu thông minh" : "SMART DATA MAP",
       client: "MobiFone",
-      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "Smart Data Map is a comprehensive digital cataloging solution designed to define, plan, and visualize the entire data lifecycle within Mobifone. It bridges the gap between physical storage and business interfaces, eliminating \"data blind spots\" to serve as the core foundation for accurate, data-driven decision-making.",
-      highlights: lang === 'vi' ? ["Nhận diện thị giác máy tính", "Trích xuất nhãn OCR", "Nhập dữ liệu tự động", "Ứng dụng di động đầu-cuối"] : ["Computer vision recognition", "OCR label extraction", "Automated data entry", "End-to-end mobile app"],
+      description: lang === 'vi' ? "Smart Data Map là giải pháp quản lý và trực quan hóa vòng đời dữ liệu, giúp kết nối hạ tầng lưu trữ với các lớp nghiệp vụ, loại bỏ điểm mù dữ liệu và hỗ trợ ra quyết định dựa trên dữ liệu." : "Smart Data Map is a comprehensive digital cataloging solution designed to define, plan, and visualize the entire data lifecycle within Mobifone. It bridges the gap between physical storage and business interfaces, eliminating \"data blind spots\" to serve as the core foundation for accurate, data-driven decision-making.",
+      highlights: lang === 'vi' ? ["Lập bản đồ dữ liệu đầu-cuối", "Phân tích dữ liệu dựa trên AI", "Kiến trúc microservices có khả năng mở rộng", "Hỗ trợ đa cơ sở dữ liệu"] : ["End-to-end data mapping", "AI-powered analytics", "Scalable microservices", "Multi-database support"],
       impact: lang === 'vi' ? ["Giảm sai sót thủ công", "Cải thiện tốc độ & hiệu quả"] : ["Reduced manual errors", "Improved speed & efficiency"],
-      image: "../image/computer4.svg"
+      image: imgcomputer4
     },
     {
       id: "logistics",
       title: lang === 'vi' ? "Nền tảng tự động hóa dựa trên AI dành cho Logistics" : "AI-powered Automation Platform for Logistics",
       client: "KN Express",
-      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "This project is an applied AI system developed to automate operational workflows for a cross-border logistics company operating between Vietnam and Japan. The solution combines web and mobile applications with computer vision and OCR technologies to digitize package information, streamline data entry, and reduce manual handling throughout the logistics process.",
+      description: lang === 'vi' ? "Hệ thống AI tự động hóa quy trình vận hành cho doanh nghiệp logistics xuyên biên giới, ứng dụng thị giác máy tính và OCR để số hóa dữ liệu và giảm thao tác thủ công." : "This project is an applied AI system developed to automate operational workflows for a cross-border logistics company operating between Vietnam and Japan. The solution combines web and mobile applications with computer vision and OCR technologies to digitize package information, streamline data entry, and reduce manual handling throughout the logistics process.",
       highlights: lang === 'vi' ? ["Nhận diện thị giác máy tính", "Trích xuất nhãn OCR", "Nhập dữ liệu tự động", "Ứng dụng di động đầu-cuối"] : ["Computer vision recognition", "OCR label extraction", "Automated data entry", "End-to-end mobile app"],
       impact: lang === 'vi' ? ["Giảm sai sót thủ công", "Cải thiện tốc độ & hiệu quả"] : ["Reduced manual errors", "Improved speed & efficiency"],
-      image: "../image/project4.svg"
+      image: imgproject4
     },
     {
-      id: "logistics",
+      id: "smartdatahub",
       title: lang === 'vi' ? "Trung tâm trao đổi dữ liệu thông minh" : "SMART DATA EXCHANGE HUB",
       client: "MobiFone",
-      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "The Smart Data Exchange Hub is a centralized, high-security platform customized specifically for Mobifone’s internal infrastructure. It transforms how Mobifone manages data by unifying File Sharing and API Integration into a single on-premise portal. This solution ensures absolute data sovereignty, keeping sensitive telecommunication assets within Mobifone’s private network while enabling seamless cross-departmental collaboration.",
-      highlights: lang === 'vi' ? ["Nhận diện thị giác máy tính", "Trích xuất nhãn OCR", "Nhập dữ liệu tự động", "Ứng dụng di động đầu-cuối"] : ["Computer vision recognition", "OCR label extraction", "Automated data entry", "End-to-end mobile app"],
+      description: lang === 'vi' ? "Nền tảng trao đổi dữ liệu tập trung, bảo mật cao cho hạ tầng nội bộ MobiFone, hợp nhất chia sẻ tệp và tích hợp API trong môi trường on-premise, đảm bảo chủ quyền dữ liệu." : "The Smart Data Exchange Hub is a centralized, high-security platform customized specifically for Mobifone’s internal infrastructure. It transforms how Mobifone manages data by unifying File Sharing and API Integration into a single on-premise portal. This solution ensures absolute data sovereignty, keeping sensitive telecommunication assets within Mobifone’s private network while enabling seamless cross-departmental collaboration.",
+      highlights: lang === 'vi' ? ["Kiến trúc microservices", "Triển khai tại chỗ", "Giám sát an ninh bằng AI", "Quản trị truy cập & vòng đời dữ liệu"] : ["Microservices architecture", "On-premise deployment", "AI-driven security monitoring", "Access and data lifecycle governance"],
       impact: lang === 'vi' ? ["Giảm sai sót thủ công", "Cải thiện tốc độ & hiệu quả"] : ["Reduced manual errors", "Improved speed & efficiency"],
-      image: "../image/project6.svg"
+      image: imgproject6
     },
     {
-      id: "logistics",
+      id: "aiprogram",
       title: lang === 'vi' ? "Chương trình đào tạo ứng dụng AI" : "Applied Artificial Intelligence Training Program",
       client: "MB",
-      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "This project is an applied AI training program designed to build foundational AI understanding for banking professionals. The program focuses on helping participants understand what AI can do, what it cannot do, and how AI systems operate in practice, rather than technical implementation.",
-      highlights: lang === 'vi' ? ["Nhận diện thị giác máy tính", "Trích xuất nhãn OCR", "Nhập dữ liệu tự động", "Ứng dụng di động đầu-cuối"] : ["Computer vision recognition", "OCR label extraction", "Automated data entry", "End-to-end mobile app"],
-      impact: lang === 'vi' ? ["Giảm sai sót thủ công", "Cải thiện tốc độ & hiệu quả"] : ["Reduced manual errors", "Improved speed & efficiency"],
-      image: "../image/project5.svg"
+      description: lang === 'vi' ? "Chương trình đào tạo AI ứng dụng nhằm trang bị kiến thức nền tảng về trí tuệ nhân tạo cho cán bộ ngân hàng, tập trung vào khả năng, giới hạn và cách AI vận hành trong thực tế." : "This project is an applied AI training program designed to build foundational AI understanding for banking professionals. The program focuses on helping participants understand what AI can do, what it cannot do, and how AI systems operate in practice, rather than technical implementation.",
+      highlights: lang === 'vi' ? ["Kiến thức nền tảng về AI", "Nắm bắt năng lực và giới hạn của AI", "Ứng dụng AI trong tài chính ngân hàng", "Tư vấn theo bài toán thực tế"] : ["AI fundamentals", "Understanding AI capabilities and limitations", "AI applications in banking and finance", "Use-case driven advisory"],
+      impact: lang === 'vi' ? ["Nâng cao hiểu biết AI trong tổ chức", "Hỗ trợ ra quyết định khi ứng dụng AI", "Thúc đẩy triển khai AI có trách nhiệm"] : ["Improved AI literacy across teams", "Informed AI adoption decisions", "Responsible AI application in banking operations"],
+      image: imgproject5
     },
     {
-      id: "logistics",
+      id: "environment",
       client: "Song Cong Environment",
       title: lang === 'vi' ? "Nền tảng giám sát hoạt động môi trường" : "Environmental operations monitoring platform",
-      description: lang === 'vi' ? "Hệ thống AI ứng dụng để tự động hóa quy trình vận hành cho logistics xuyên biên giới (Việt Nam - Nhật Bản)." : "This project applies artificial intelligence and computer vision to monitor, analyze, and evaluate operational performance within an industrial waste treatment facility. The system integrates IP camera–based visual monitoring with data from operational sensors to provide a comprehensive, data-driven view of waste processing activities across multiple production lines.",
-      highlights: lang === 'vi' ? ["Nhận diện thị giác máy tính", "Trích xuất nhãn OCR", "Nhập dữ liệu tự động", "Ứng dụng di động đầu-cuối"] : ["Computer vision recognition", "OCR label extraction", "Automated data entry", "End-to-end mobile app"],
-      impact: lang === 'vi' ? ["Giảm sai sót thủ công", "Cải thiện tốc độ & hiệu quả"] : ["Reduced manual errors", "Improved speed & efficiency"],
-      image: "../image/computer7.svg"
+      description: lang === 'vi' ? "Giải pháp ứng dụng AI và thị giác máy tính để giám sát và phân tích hoạt động tại cơ sở xử lý chất thải công nghiệp, kết hợp dữ liệu hình ảnh và cảm biến vận hành." : "This project applies artificial intelligence and computer vision to monitor, analyze, and evaluate operational performance within an industrial waste treatment facility. The system integrates IP camera–based visual monitoring with data from operational sensors to provide a comprehensive, data-driven view of waste processing activities across multiple production lines.",
+      highlights: lang === 'vi' ? ["Giám sát hoạt động bằng thị giác máy tính", "Tích hợp dữ liệu camera và cảm biến", "Đánh giá KPI vận hành tự động", "Phân tích chất lượng và tuân thủ quy trình", "Giao diện giám sát và báo cáo tập trung"] : ["Computer vision-based operational monitoring", "Camera and sensor data integration", "Automated operational KPI evaluation", "Quality and process compliance analysis", "Centralized monitoring and reporting interface"],
+      impact: lang === 'vi' ? ["Tăng tính minh bạch và khả năng giám sát theo thời gian thực", "Đánh giá hiệu quả và chất lượng dựa trên dữ liệu", "Hỗ trợ tối ưu hóa liên tục hiệu quả vận hành"] : ["Enhanced real-time operational transparency", "Objective, data-driven performance and quality evaluation", "Continuous optimization of operational efficiency"],
+      image: imgcomputer7
     }
   ], [lang]);
 
   return (
     <div className="min-h-screen flex flex-col">
       {/* --- Header --- */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-6'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 mb-8">
-            <img src="../image/Logo.svg" className="logo-banner rounded-2xl row-span-2 object-cover h-full" alt="Team" />
+            <img src={imgLogo} className="logo-banner rounded-2xl row-span-2 object-cover h-full" alt="Team" />
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
@@ -440,7 +463,7 @@ const App: React.FC = () => {
             
             <button 
               onClick={() => setLang(lang === 'vi' ? 'en' : 'vi')}
-              className="flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700 hover:border-blue-500 transition-colors text-xs font-bold uppercase tracking-widest text-slate-300"
+              className="flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700 hover:border-blue-500 transition-colors text-xs font-bold uppercase tracking-widest text-slate-900"
             >
               <Languages size={14} className="text-blue-500" />
               {lang === 'vi' ? 'EN' : 'VN'}
@@ -454,7 +477,7 @@ const App: React.FC = () => {
             >
               {lang === 'vi' ? 'EN' : 'VN'}
             </button>
-            <button className="text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button className="text-slate-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
@@ -462,7 +485,7 @@ const App: React.FC = () => {
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-slate-900 border-b border-slate-800 p-6 flex flex-col gap-6 animate-in slide-in-from-top duration-300">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-800 p-6 flex flex-col gap-6 animate-in slide-in-from-top duration-300">
             <NavItem href="#about" label={t.nav.about} onClick={() => setIsMenuOpen(false)} />
             <NavItem href="#tech" label={t.nav.tech} onClick={() => setIsMenuOpen(false)} />
             <NavItem href="#products" label={t.nav.products} onClick={() => setIsMenuOpen(false)} />
@@ -473,59 +496,65 @@ const App: React.FC = () => {
       </header>
 
       {/* --- Hero Section --- */}
+      {/* --- --- */}
       <section className="relative h-screen flex items-center pt-20 overflow-hidden hero-gradient">
         <div className="absolute inset-0 z-0 opacity-20">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px]"></div>
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-800 rounded-full blur-[100px]"></div>
         </div>
-
+        {/* --- --- */}
+        
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-block px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-medium text-sm mb-6">
               {t.hero.badge}
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-slate-900">
               {t.hero.title1} <br />
               <span className="gradient-text">{t.hero.title2}</span>
             </h1>
-            <p className="text-xl text-slate-400 mb-10 max-w-lg">
+            <p className="text-xl text-slate-700 mb-10 max-w-lg">
               {t.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#about" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-full font-bold transition-all flex items-center justify-center gap-2">
+              <a href="#about" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-full font-bold transition-all flex items-center justify-center gap-2 text-white">
                 {t.hero.ctaPrimary} <ChevronRight size={20} />
               </a>
-              <a href="#contact" className="px-8 py-4 border border-slate-700 hover:border-slate-500 rounded-full font-bold transition-all text-center">
+              <a href="#contact" className="px-8 py-4 border border-slate-700 hover:border-slate-500 rounded-full font-bold transition-all text-center text-slate-900">
                 {t.hero.ctaSecondary}
               </a>
             </div>
           </div>
           <div className="hidden md:block relative">
              <img 
-               src="../image/Mask group.svg" 
+               src={imgMask_group}
                alt="AI Tech Hub" 
                className="rounded-2xl shadow-2xl border border-slate-800"
              />
              <div className="absolute -bottom-6 -left-6 glass-card p-6 rounded-xl border-l-4 border-blue-600 shadow-xl max-w-[200px]">
                 <p className="text-3xl font-bold text-blue-500 mb-1">99%</p>
-                <p className="text-xs text-slate-400 uppercase tracking-widest font-semibold">{lang === 'vi' ? 'Độ chính xác' : 'Model Accuracy'}</p>
+                <p className="text-xs text-slate-700 uppercase tracking-widest font-semibold">{lang === 'vi' ? 'Độ chính xác' : 'Model Accuracy'}</p>
              </div>
              <div className="absolute -top-6 -right-6 glass-card p-6 rounded-xl border-r-4 border-blue-400 shadow-xl max-w-[200px]">
                 <p className="text-3xl font-bold text-blue-400 mb-1">10+</p>
-                <p className="text-xs text-slate-400 uppercase tracking-widest font-semibold">{lang === 'vi' ? 'Dự án quy mô' : 'Large Projects'}</p>
+                <p className="text-xs text-slate-700 uppercase tracking-widest font-semibold">{lang === 'vi' ? 'Dự án quy mô' : 'Large Projects'}</p>
              </div>
           </div>
         </div>
       </section>
 
       {/* --- About Us --- */}
-      <section id="about" className="py-24 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="about" className="relative py-24 overflow-hidden hero-gradient">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-800 rounded-full blur-[100px]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <SectionTitle subtitle={t.about.subtitle} title={t.about.title} />
           
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-lg text-slate-300 leading-relaxed mb-8">
+              <p className="text-lg text-slate-900 leading-relaxed mb-8">
                 {t.about.description}
               </p>
               
@@ -536,43 +565,47 @@ const App: React.FC = () => {
                       <CheckCircle2 className="text-blue-500" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-xl mb-1">{item.title}</h4>
-                      <p className="text-slate-400 text-sm">{item.desc}</p>
+                      <h4 className="font-bold text-xl mb-1 text-slate-900">{item.title}</h4>
+                      <p className="text-slate-700 text-sm">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
               <div className="mt-12 p-8 border border-blue-900/50 bg-blue-900/10 rounded-2xl">
-                <p className="italic text-blue-200">
+                <p className="italic text-blue-700">
                   "{t.about.quote}"
                 </p>
               </div>
             </div>
             
-            <img src="../image/Union.svg" className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
+            <img src={imgUnion} className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
           </div>
         </div>
       </section>
 
       {/* --- Tech Stack --- */}
-      <section id="tech" className="py-24 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="tech" className="relative py-24 overflow-hidden hero-gradient">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-800 rounded-full blur-[100px]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <SectionTitle subtitle={t.tech.subtitle} title={t.tech.title} />
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {techStack.map((tech, idx) => (
               <div key={idx} className="glass-card p-8 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition-all group">
-                <div className="mb-6 bg-slate-900 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="mb-6 bg-white w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   {tech.icon}
                 </div>
-                <h4 className="text-xl font-bold mb-4">{tech.title}</h4>
-                <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                <h4 className="text-xl font-bold mb-4 text-slate-900">{tech.title}</h4>
+                <p className="text-slate-700 text-sm mb-6 leading-relaxed">
                   {tech.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {tech.technologies.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 bg-slate-900 text-slate-300 text-xs rounded-full border border-slate-800">
+                    <span key={i} className="px-3 py-1 bg-white text-slate-700 text-xs rounded-full border border-slate-800">
                       {tag}
                     </span>
                   ))}
@@ -584,14 +617,18 @@ const App: React.FC = () => {
       </section>
 
       {/* --- Capability Stack --- */}
-      <section id="capability" className="py-24 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="capability" className="relative py-24 overflow-hidden hero-gradient">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-800 rounded-full blur-[100px]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <SectionTitle subtitle={t.capability.subtitle} title={t.capability.title} />
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilityStack.map((capability, idx) => (
               <div key={idx} className="glass-card p-8 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition-all group">
-                {/* { <div className="mb-6 bg-slate-900 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                {/* { <div className="mb-6 bg-white w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   {capability.image}
                 </div> } */}
                 { <div className="flex-1 mb-5">
@@ -600,8 +637,8 @@ const App: React.FC = () => {
                     <img src={capability.image} className="relative rounded-2xl shadow-2xl border border-slate-800 w-full" alt={capability.title} />
                   </div>
                 </div> }
-                <h4 className="text-xl font-bold mb-4">{capability.title}</h4>
-                <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                <h4 className="text-xl font-bold mb-4 text-slate-900">{capability.title}</h4>
+                <p className="text-slate-700 text-sm mb-6 leading-relaxed">
                   {capability.description}
                 </p>
               </div>
@@ -611,9 +648,13 @@ const App: React.FC = () => {
       </section>
 
       {/* --- Delivery Method --- */}
-      <section className="py-24 bg-slate-900 relative overflow-hidden">
+      <section className="relative py-24 overflow-hidden hero-gradient">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-800 rounded-full blur-[100px]"></div>
+        </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="bg-slate-950/50 border border-slate-800 rounded-[3rem] p-12 md:p-20 overflow-hidden relative">
+          <div className="bg-white/50 border border-slate-800 rounded-[3rem] p-12 md:p-20 overflow-hidden relative">
             <div className="absolute top-0 right-0 p-12 opacity-10">
               <Layers size={200} />
             </div>
@@ -628,8 +669,8 @@ const App: React.FC = () => {
                       {idx + 1}
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-white mb-2">{item.title}</h4>
-                      <p className="text-slate-400">{item.desc}</p>
+                      <h4 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h4>
+                      <p className="text-slate-700">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -640,8 +681,12 @@ const App: React.FC = () => {
       </section>
 
       {/* --- Products --- */}
-      <section id="products" className="py-24 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="products" className="relative py-24 overflow-hidden hero-gradient">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-800 rounded-full blur-[100px]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <SectionTitle subtitle={t.products.subtitle} title={t.products.title} />
           
           <div className="grid gap-20">
@@ -649,32 +694,32 @@ const App: React.FC = () => {
               <div key={product.id} className={`flex flex-col md:flex-row gap-12 items-center ${idx % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
                 <div className="flex-1">
                   <div className="w-20 h-2 bg-blue-600 mb-6"></div>
-                  <h3 className="text-3xl md:text-4xl font-bold mb-2">{product.name}</h3>
+                  <h3 className="text-3xl md:text-4xl font-bold mb-2 text-slate-900">{product.name}</h3>
                   <p className="text-blue-400 font-medium mb-6 uppercase tracking-wider text-sm">{product.tagline}</p>
-                  <p className="text-slate-400 mb-8 text-lg leading-relaxed">
+                  <p className="text-slate-700 mb-8 text-lg leading-relaxed">
                     {product.description}
                   </p>
                   
                   <div className="grid sm:grid-cols-2 gap-8">
                     <div>
-                      <h5 className="font-bold text-slate-100 flex items-center gap-2 mb-4">
+                      <h5 className="font-bold text-slate-900 flex items-center gap-2 mb-4">
                         <Zap className="w-4 h-4 text-blue-500" /> {t.products.labels.capabilities}
                       </h5>
                       <ul className="space-y-2">
                         {product.capabilities.map((c, i) => (
-                          <li key={i} className="text-sm text-slate-400 flex items-center gap-2">
+                          <li key={i} className="text-sm text-slate-700 flex items-center gap-2">
                             <CheckCircle2 size={14} className="text-blue-500 flex-shrink-0" /> {c}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h5 className="font-bold text-slate-100 flex items-center gap-2 mb-4">
+                      <h5 className="font-bold text-slate-900 flex items-center gap-2 mb-4">
                         <BarChart3 className="w-4 h-4 text-blue-500" /> {t.products.labels.value}
                       </h5>
                       <ul className="space-y-2">
                         {product.value.map((v, i) => (
-                          <li key={i} className="text-sm text-slate-400 flex items-center gap-2">
+                          <li key={i} className="text-sm text-slate-700 flex items-center gap-2">
                             <CheckCircle2 size={14} className="text-blue-400 flex-shrink-0" /> {v}
                           </li>
                         ))}
@@ -695,13 +740,17 @@ const App: React.FC = () => {
       </section>
 
       {/* --- Projects --- */}
-      <section id="projects" className="py-24 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="projects" className="relative py-24 overflow-hidden hero-gradient">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-800 rounded-full blur-[100px]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <SectionTitle subtitle={t.projects.subtitle} title={t.projects.title} />
           
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 hover:border-blue-500/30 transition-all flex flex-col">
+              <div key={project.id} className="bg-white rounded-3xl overflow-hidden border border-slate-800 hover:border-blue-500/30 transition-all flex flex-col">
                 <div className="h-64 relative overflow-hidden mt-5">
                   <img src={project.image} className="w-full h-full" alt={project.title} />
                   {/* {project.client && (
@@ -711,15 +760,15 @@ const App: React.FC = () => {
                   )} */}
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
-                  <h4 className="text-2xl font-bold mb-4">{project.title}</h4>
-                  <p className="text-slate-400 text-sm mb-6 leading-relaxed">{project.description}</p>
+                  <h4 className="text-2xl font-bold mb-4 text-slate-900">{project.title}</h4>
+                  <p className="text-slate-700 text-sm mb-6 leading-relaxed">{project.description}</p>
                   
                   <div className="mt-auto">
                     <div className="mb-6">
                        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">{t.projects.labels.highlights}</p>
                        <div className="flex flex-wrap gap-2">
                           {project.highlights.map((h, i) => (
-                            <span key={i} className="px-3 py-1 bg-slate-900 text-slate-300 text-[10px] rounded-full border border-slate-800">
+                            <span key={i} className="px-3 py-1 bg-white text-slate-700 text-[10px] rounded-full border border-slate-800">
                               {h}
                             </span>
                           ))}
@@ -750,12 +799,16 @@ const App: React.FC = () => {
       </section>
 
       {/* --- Footer & Contact --- */}
-      <footer id="contact" className="bg-slate-950 pt-24 pb-12 border-t border-slate-900">
-        <div className="max-w-7xl mx-auto px-6">
+      <footer id="contact" className="relative pt-24 pb-12 border-t border-slate-900 overflow-hidden hero-gradient">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-800 rounded-full blur-[100px]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-8">
-                <img src="../image/Logo.svg" className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
+                <img src={imgLogo} className="rounded-2xl row-span-2 object-cover h-full" alt="Team" />
               </div>
               {/* <p className="text-slate-400 text-sm leading-relaxed mb-8">
                 {t.footer.description}
@@ -763,34 +816,34 @@ const App: React.FC = () => {
             </div>
 
             <div className="lg:col-span-1">
-              <h5 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">{t.footer.links}</h5>
+              <h5 className="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">{t.footer.links}</h5>
               <ul className="space-y-4">
-                <li><a href="#about" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">{t.nav.about}</a></li>
-                <li><a href="#tech" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">{t.nav.tech}</a></li>
-                <li><a href="#products" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">{t.nav.products}</a></li>
-                <li><a href="#projects" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">{t.nav.projects}</a></li>
+                <li><a href="#about" className="text-slate-700 hover:text-blue-400 transition-colors text-sm">{t.nav.about}</a></li>
+                <li><a href="#tech" className="text-slate-700 hover:text-blue-400 transition-colors text-sm">{t.nav.tech}</a></li>
+                <li><a href="#products" className="text-slate-700 hover:text-blue-400 transition-colors text-sm">{t.nav.products}</a></li>
+                <li><a href="#projects" className="text-slate-700 hover:text-blue-400 transition-colors text-sm">{t.nav.projects}</a></li>
               </ul>
             </div>
 
             <div className="lg:col-span-2">
-              <h5 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">{t.footer.info}</h5>
+              <h5 className="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">{t.footer.info}</h5>
               <div className="grid sm:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                  <div className="flex gap-4 items-start text-slate-400 text-sm">
+                  <div className="flex gap-4 items-start text-slate-700 text-sm">
                     <MapPin className="text-blue-500 flex-shrink-0" size={18} />
                     <span>4th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi City, Vietnam</span>
                   </div>
-                  <div className="flex gap-4 items-center text-slate-400 text-sm">
+                  <div className="flex gap-4 items-center text-slate-700 text-sm">
                     <Phone className="text-blue-500 flex-shrink-0" size={18} />
                     <span>0908.632.288</span>
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="flex gap-4 items-center text-slate-400 text-sm">
+                  <div className="flex gap-4 items-center text-slate-700 text-sm">
                     <Mail className="text-blue-500 flex-shrink-0" size={18} />
                     <span>support@tabcom.vn</span>
                   </div>
-                  <div className="flex gap-4 items-center text-slate-400 text-sm">
+                  <div className="flex gap-4 items-center text-slate-700 text-sm">
                     <Globe className="text-blue-500 flex-shrink-0" size={18} />
                     <a href="https://tabcom.vn" className="hover:text-blue-400">https://tabcom.vn</a>
                   </div>
